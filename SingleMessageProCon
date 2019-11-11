@@ -1,0 +1,25 @@
+
+/*
+ * Se volessi restituire solo il producer
+ */
+
+	Properties props = new Properties();
+	props.put("bootstrap.servers", "localhost:9092");
+	Producer<String,MovieObject> kafkaProducer = 
+	  new KafkaProducer<>(
+	    props,
+	    new StringSerializer(),
+	    new KafkaJsonSer()
+	  );
+	// Send a message
+	kafkaProducer.send(new ProducerRecord<>("NOMETOPICMOVIE", "0", MovieObject));
+	
+/*
+ * Se volessi restituire solo il consumer
+ */
+	Consumer<String, MovieObject> consumer =
+	        new KafkaConsumer<>(props,new StringSerializer(),new KafkaJsonDeserializer<MovieObject>(MovieObject.class));
+	
+	// Subscribe to the topic
+	consumer.subscribe(Collections.singletonList("NOMETOPICMOVIE"));
+}

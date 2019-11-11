@@ -1,0 +1,50 @@
+========================
+EXERCISE, READ ME.
+========================
+Author: Francesca
+Tutor: Nicola
+Tag: Tag: kafka, json, howto, dataingestion.
+
+===========Note and objects: ===================
+
+The aim of this exercise is to create a project (Java, Maven, Kafka)
+that send and receive a(n) json object using kafka client.
+
+Find the simpliest O(n) way to publish the JSON data to the Kafka topic "Movies".
+
+===========Develop: ===================
+
+It's not the firt time I've created a similar concept repository.
+1. Firt of all with couchbase/spring,
+2. Then, with Apache NUVI. *jump of joy*
+
+https://blogs.apache.org/nifi/entry/integrating_apache_nifi_with_apache 
+
+Both Extremely user friendly.
+Why prefer NUVI? 
+FlowFile: Each piece of "User Data" (i.e., data that the user brings into NiFi for processing and distribution) is referred to as a FlowFile. A FlowFile is made up of two parts: Attributes and Content. The Content is the User Data itself. Attributes are key-value pairs that are associated with the User Data.
+Processor: The Processor is the NiFi component that is responsible for creating, sending, receiving, transforming, routing, splitting, merging, and processing FlowFiles. It is the most important building block available to NiFi users to build their dataflows.
+
+
+The project focus on .pom, dependencies and the use case of SER/DE (interface and methods).
+Than (KafkaServiece.java) handle producer consumer.
+
+At the end of this case you can find a file too, called "Single Message Producer Consumer",
+a case of single retrieve.
+
+There's a package to fix tests too.
+
+
+=====================================================================
+Kafka Configuration & Startup
+=====================================================================
+In the bin directory of your Kafka install: (remember bat if use Windows)
+
+Start ZooKeeper: ./zookeeper-server-start.sh ../config/zookeeper.properties
+Start Kafka: ./kafka-server-start.sh ../config/server.properties
+Create Kafka Topic: ./kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic Movies
+Start Kafka Consumer: ./kafka-console-consumer.sh --zookeeper localhost:2181 --topic Movies –from-beginning
+
+
+Thank you for the time to read this.
+Francesca
