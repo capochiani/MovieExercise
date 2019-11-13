@@ -16,12 +16,12 @@ Find the simpliest O(n) way to publish the JSON data to the Kafka topic "Movies"
 
 It's not the firt time I've created a similar concept repository.
 1. Firt of all with couchbase/spring,
-2. Then, with Apache NUVI. *jump of joy*
+2. Then, with Apache NIFI. *jump of joy*
 
 https://blogs.apache.org/nifi/entry/integrating_apache_nifi_with_apache 
 
 Both Extremely user friendly.
-Why prefer NUVI? 
+Why prefer NIFI? 
 FlowFile: Each piece of "User Data" (i.e., data that the user brings into NiFi for processing and distribution) is referred to as a FlowFile. A FlowFile is made up of two parts: Attributes and Content. The Content is the User Data itself. Attributes are key-value pairs that are associated with the User Data.
 Processor: The Processor is the NiFi component that is responsible for creating, sending, receiving, transforming, routing, splitting, merging, and processing FlowFiles. It is the most important building block available to NiFi users to build their dataflows.
 
